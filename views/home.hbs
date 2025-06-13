@@ -1,0 +1,119 @@
+<div class="card profile-card shadow-lg p-4 mb-5 rounded d-flex flex-md-row flex-column align-items-center content">
+  
+ <div class="image-container" >
+   <img src="https://media.licdn.com/dms/image/v2/D4E03AQGsHhvp925Qmg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692799988380?e=1755129600&v=beta&t=R4MI9sXrhTT5tSAu6loQZEnaGaIsUckPBaWyNHqy7tw" alt="Profile">
+ </div>
+
+   <div class="profile-circle me-md-4 mb-4 mb-md-0"></div>
+
+  <div >
+    <h2 class="fw-bold">Mahmoud Saheli</h2>
+    <h4 class="text-muted">Curious Developer, Passionate Web Designer</h4>
+    <p class="mt-3">
+      <strong>Email:</strong> mahmoud_alsahily@hotmail.com<br>
+      <strong>Location:</strong> Canada
+    </p>
+    <p>
+      Working on Front-end, Back-end, Full-stack developer roles with technologies like:
+      <br><strong>C#, ASP.NET, PHP, JavaScript, SQL, WordPress, MongoDB, Express.js, React, React Native, VueJS, AngularJS, Node.js</strong> and beyond.
+    </p>
+  </div>
+</div>
+
+<div class="scroll-icon text-center mt-5">
+  <i class="fas fa-mouse fa-2x scroll-bounce text-dark"></i>
+  <div class="text-muted">Scroll for more</div>
+</div>
+
+<div class="profile-circle me-md-4 mb-4 mb-md-0"></div>
+
+<div class="card projects-section p-4 mb-5">
+  <h3 class="mb-4">Projects</h3>
+  
+  <div class="row g-4">
+    {{#each projects}}
+      <div class="col-md-6 col-lg-4">
+        <a href="/projects/{{@index}}" class="text-decoration-none text-dark">
+          <div class="card project-card h-100 shadow-sm p-3">
+            <img src="{{this.img}}" class="card-img-top mb-3 rounded" alt="{{this.title}}">
+            <div class="card-body">
+              <h5 class="card-title">{{this.title}}</h5>
+              <p class="card-text mb-1"><strong>Role:</strong> {{this.desc}}</p>
+              <p class="card-text mb-1"><strong>Tech:</strong> 
+                {{#each this.tech}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+              </p>
+              {{#if this.date}}
+                <p class="card-text text-muted"><small>{{this.date}}</small></p>
+              {{/if}}
+            </div>
+          </div>
+        </a>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+
+
+<script src="/javascripts/carousel.js" defer></script>
+
+<div class="card organizations-section p-4 mb-5">
+  <h3 class="mb-4">Organizations</h3>
+
+  <div class="organization-carousel-container position-relative" style="width: 100%;">
+    <button class="carousel-arrow left-arrow" aria-label="Previous">&#9664;</button>
+
+    <div class="organization-carousel d-flex overflow-hidden">
+      {{#each organizations}}
+        <div class="organization-card card shadow-sm p-3 flex-shrink-0">
+          <img src="{{this.img}}" alt="{{this.name}}" class="org-img rounded-circle mb-2">
+          <h5 class="org-name">{{this.name}}</h5>
+          <p class="org-role mb-1">{{this.role}}</p>
+          {{#if this.date}}
+            <p class="org-date text-muted"><small>{{this.date}}</small></p>
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
+
+    <button class="carousel-arrow right-arrow" aria-label="Next">&#9654;</button>
+
+    <div class="carousel-dots text-center mt-3"></div>
+  </div>
+</div>
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+<div id="contact" class="card contact-section p-4 mb-5">
+  <h3 class="mb-3">Contact Me</h3>
+  <p>If you'd like to get in touch, feel free to drop a message below.</p>
+
+  <form method="POST" action="/contact-submit">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" id="lastName" name="lastName" class="form-control" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+    </div>
+
+    <div class="g-recaptcha mb-3" data-sitekey="6LeOOGArAAAAAMQd_XCmkLDUpXeAQYHnDm7EcUbA"></div>
+
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+</div>
+
+
+
+
+

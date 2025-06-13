@@ -1,0 +1,33 @@
+<div class="container py-5">
+  <div class="mb-4">
+    <a href="/" class="btn btn-outline-primary">&larr; Back to Projects</a>
+  </div>
+
+  <h1 class="display-4 fw-bold mb-2">{{title}}</h1>
+
+  {{#if date}}
+    <p class="text-muted mb-4"><i class="bi bi-calendar-event me-2"></i>{{date}}</p>
+  {{/if}}
+
+  {{#if img}}
+    <img src="{{img}}" alt="{{title}}" class="img-fluid rounded shadow mb-4" style="max-height: 400px; object-fit: cover;">
+  {{/if}}
+
+  {{#if tech}}
+    <div class="mb-4">
+      <h5 class="mb-2">Technologies Used:</h5>
+      <div class="d-flex flex-wrap gap-2">
+        {{#each tech}}
+          <span class="badge bg-secondary px-3 py-2">{{this}}</span>
+        {{/each}}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if desc}}
+    <div class="mb-5">
+      <h5>Description:</h5>
+      <p>{{desc}}</p>
+    </div>
+  {{/if}}
+</div>

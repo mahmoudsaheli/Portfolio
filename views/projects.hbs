@@ -1,0 +1,26 @@
+<div class="card projects-section p-4 mb-5">
+  
+  <h3 class="mb-4">All Projects</h3>
+  
+  <div class="row g-4">
+    {{#each projects}}
+      <div class="col-md-6 col-lg-4">
+        <a href="/projects/{{@index}}" class="text-decoration-none text-dark">
+          <div class="card project-card h-100 shadow-sm p-3">
+            <img src="{{this.img}}" class="card-img-top mb-3 rounded" alt="{{this.title}}">
+            <div class="card-body">
+              <h5 class="card-title">{{this.title}}</h5>
+              <p class="card-text mb-1"><strong>Role:</strong> {{this.desc}}</p>
+              <p class="card-text mb-1"><strong>Tech:</strong> 
+                {{#each this.tech}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+              </p>
+              {{#if this.date}}
+                <p class="card-text text-muted"><small>{{this.date}}</small></p>
+              {{/if}}
+            </div>
+          </div>
+        </a>
+      </div>
+    {{/each}}
+  </div>
+</div>
